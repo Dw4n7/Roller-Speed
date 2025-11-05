@@ -37,12 +37,9 @@
                 <h1 class="text-4xl font-extrabold text-cyan-600 mb-6">Inicia <span class="text-blue-500">Sesión</span></h1>
 
                 <div class="flex gap-6 mb-8">
-                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="/images/facebook.png" alt=""></div>
-                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="/images/cromo.png" alt=""></div>
-                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="/images/logotipo-de-mac-os.png" alt=""></div>
-                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="/images/facebook.png" alt="" loading="lazy" decoding="async"></div>
-                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="/images/cromo.png" alt="" loading="lazy" decoding="async"></div>
-                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="/images/logotipo-de-mac-os.png" alt="" loading="lazy" decoding="async"></div>
+                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="images/facebook.png" alt=""></div>
+                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="images/cromo.png" alt=""></div>
+                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="images/logotipo-de-mac-os.png" alt=""></div>
                 </div>
 
                 <form id="loginForm" class="space-y-6 max-w-md w-full">
@@ -78,13 +75,12 @@
                     return;
                 }
                 error.classList.add('hidden');
-                const origin = (window.location.protocol === 'file:') ? '' : window.location.origin; // file:// -> usar rutas relativas
                 if(username.includes('admin')){
-                    window.location.href = origin + '/admin.html';
+                    window.location.href = 'admin.html';
                 } else if(username.includes('instructor')){
-                    window.location.href = origin + '/instructor.html';
+                    window.location.href = 'instructor.html';
                 } else {
-                    window.location.href = origin + '/estudiantes.html';
+                    window.location.href = 'estudiantes.html';
                 }
             });
         })();
