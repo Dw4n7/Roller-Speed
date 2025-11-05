@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instructor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 min-h-screen font-sans px-4">
+    <!-- Navbar -->
+    <nav class="bg-white shadow flex flex-col md:flex-row justify-between items-center px-4 md:px-8 py-3">
+      <div class="flex items-center w-full md:w-auto">
+        <a href="index.html"><img src="images/logoRS.png" alt="Logo" class="w-10 h-10 mr-4" loading="lazy"/></a>
+        <div class="md:hidden">
+          <button id="instMobileMenuBtn" class="p-2 rounded-md bg-gray-100">☰</button>
+        </div>
+      </div>
+
+      <!-- Menú centrado -->
+      <div class="hidden md:flex space-x-6">
+        <a href="#" class="text-gray-500 hover:text-gray-800">Inicio</a>
+        <a href="#" class="text-gray-500 hover:text-gray-800">Asistencias</a>
+        <a href="#" class="text-gray-500 hover:text-gray-800">Evaluar</a>
+        <a href="#" class="text-gray-500 hover:text-gray-800">Clases</a>
+      </div>
+
+      <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-300 mt-3 md:mt-0">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="profile" loading="lazy"/>
+      </div>
+
+      <div id="instMobileNav" class="hidden absolute left-4 right-4 top-full bg-white shadow-md z-40 md:hidden rounded-b-lg overflow-hidden">
+        <div class="flex flex-col px-4 py-2">
+          <a class="py-2 border-b" href="#">Inicio</a>
+          <a class="py-2 border-b" href="#">Asistencias</a>
+          <a class="py-2 border-b" href="#">Evaluar</a>
+          <a class="py-2" href="#">Clases</a>
+        </div>
+      </div>
+
+    <!-- Header principal -->
+    <section
+      class="bg-white shadow rounded-xl mx-4 md:mx-8 mt-6 p-6 flex flex-col md:flex-row items-start md:items-center justify-between"
+    >
+      <div class="flex items-center space-x-4">
+        <img
+          src="https://randomuser.me/api/portraits/men/32.jpg"
+          alt="Andrés"
+          class="w-20 h-20 rounded-full object-cover"
+        />
+        <div>
+          <h2 class="text-2xl font-semibold text-gray-800">Andrés Martínez</h2>
+        </div>
+      </div>
+  <div class="flex space-x-8 mt-6 md:mt-0">
+        <div class="text-center">
+          <p class="text-3xl font-bold text-gray-800">3</p>
+          <p class="text-gray-500">Grupos</p>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-bold text-gray-800">28</p>
+          <p class="text-gray-500">Total de Alumnos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabs de grupos -->
+    <div class="flex justify-center mt-6 space-x-4">
+      <button
+        id="grupo1"
+        class="grupo-btn px-6 py-2 bg-pink-200 rounded-full text-gray-700 font-semibold"
+      >
+        Grupo 1
+      </button>
+      <button
+        id="grupo2"
+        class="grupo-btn px-6 py-2 bg-gray-300 rounded-full text-gray-700 font-semibold"
+      >
+        Grupo 2
+      </button>
+      <button
+        id="grupo3"
+        class="grupo-btn px-6 py-2 bg-gray-300 rounded-full text-gray-700 font-semibold"
+      >
+        Grupo 3
+      </button>
+    </div>
+
+  <!-- Sección principal -->
+  <main class="grid grid-cols-1 md:grid-cols-3 gap-6 mx-4 md:mx-8 mt-6">
+      <!-- Estadísticas -->
+      <section class="col-span-2 bg-white shadow rounded-xl p-6">
+        <h3 class="text-2xl font-bold mb-4 text-gray-800">Estadísticas</h3>
+        <img
+          id="graficaLinea"
+          src="https://phys.libretexts.org/@api/deki/files/13947/v_const_a.png?revision=1"
+          alt="Gráfico de línea"
+          class="w-full rounded-lg shadow-sm transition-all duration-300"
+          loading="lazy"
+        />
+
+        <div class="grid grid-cols-2 gap-6 mt-6">
+          <!-- Objetivos -->
+          <div class="bg-gray-50 p-4 rounded-xl shadow-inner">
+            <h4 class="font-bold mb-4 text-gray-700">Objetivos</h4>
+            <ul id="objetivosList" class="space-y-3"></ul>
+          </div>
+
+          <!-- Rendimiento Personal -->
+          <div class="bg-gray-50 p-4 rounded-xl shadow-inner">
+            <h4 class="font-bold mb-4 text-gray-700">Rendimiento Personal</h4>
+            <img
+              id="graficaCircular"
+              src="https://piktochart.com/wp-content/uploads/2021/08/gauge_1-1024x759.png"
+              alt="Gráfico de rendimiento"
+              class="mx-auto w-3/4 rounded-lg shadow-sm transition-all duration-300"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Columna derecha -->
+      <section class="space-y-6">
+        <!-- Alumnos -->
+        <div class="bg-white shadow rounded-xl p-4 text-center">
+          <h4 class="font-bold text-gray-800 mb-4">Alumnos</h4>
+          <div class="flex items-center justify-between px-4">
+            <button
+              id="prevAlumno"
+              class="p-3 rounded-full bg-gray-100 hover:bg-pink-200 transition-all shadow-md hover:shadow-lg"
+              title="Anterior alumno"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-gray-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+
+            <div class="flex flex-col items-center">
+              <img
+                id="alumnoImg"
+                src="https://randomuser.me/api/portraits/men/43.jpg"
+                class="w-20 h-20 rounded-full object-cover shadow-md transition-all duration-300"
+              />
+              <p
+                id="alumnoNombre"
+                class="mt-2 font-medium text-gray-700 text-lg transition-all duration-300"
+              >
+                Alumno 1
+              </p>
+              <div
+                class="flex justify-center space-x-1 text-yellow-400 mt-1"
+                id="estrellas"
+              >
+                ⭐⭐⭐⭐⭐
+              </div>
+            </div>
+
+            <button
+              id="nextAlumno"
+              class="p-3 rounded-full bg-gray-100 hover:bg-pink-200 transition-all shadow-md hover:shadow-lg"
+              title="Siguiente alumno"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-gray-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Reuniones -->
+        <div class="bg-white shadow rounded-xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h4 class="font-bold text-gray-800 text-lg">Reuniones</h4>
+            <button
+              id="addReunion"
+              class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-full shadow-md transition"
+            >
+              + Añadir
+            </button>
+          </div>
+
+          <p
+            id="reunionesNum"
+            class="text-4xl font-bold text-gray-800 text-center mb-4"
+          >
+            05
+          </p>
+
+          <ul id="listaReuniones" class="space-y-3">
+            <li
+              class="flex items-center justify-between bg-gray-50 p-3 rounded-lg shadow-sm"
+            >
+              <div class="flex items-center space-x-2">
+                <span class="text-blue-500 text-xl">📆</span>
+                <span class="text-gray-700">15 Oct - 4:00 p.m.</span>
+              </div>
+              <span class="text-sm text-green-600 font-medium">Confirmada</span>
+            </li>
+            <li
+              class="flex items-center justify-between bg-gray-50 p-3 rounded-lg shadow-sm"
+            >
+              <div class="flex items-center space-x-2">
+                <span class="text-blue-500 text-xl">📆</span>
+                <span class="text-gray-700">22 Oct - 3:30 p.m.</span>
+              </div>
+              <span class="text-sm text-yellow-600 font-medium">Pendiente</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Noticias -->
+        <div class="bg-white shadow rounded-xl p-6">
+          <h4 class="font-bold text-gray-800 text-lg mb-4">📰 Noticias</h4>
+
+          <div class="relative overflow-hidden rounded-xl" id="newsCarousel">
+            <div
+              class="flex transition-transform duration-700 ease-in-out"
+              id="newsSlides"
+            >
+              <div
+                class="min-w-full bg-gray-50 p-4 rounded-xl flex items-center space-x-3"
+              >
+                <span class="text-blue-500 text-2xl">📢</span>
+                <p class="text-gray-700">
+                  Competencia nacional de velocidad este domingo.
+                </p>
+              </div>
+              <div
+                class="min-w-full bg-gray-50 p-4 rounded-xl flex items-center space-x-3"
+              >
+                <span class="text-pink-500 text-2xl">🏆</span>
+                <p class="text-gray-700">
+                  ¡Felicitaciones al grupo 1 por lograr el 1.er lugar regional!
+                </p>
+              </div>
+              <div
+                class="min-w-full bg-gray-50 p-4 rounded-xl flex items-center space-x-3"
+              >
+                <span class="text-green-500 text-2xl">⛸️</span>
+                <p class="text-gray-700">
+                  Nueva pista de entrenamiento disponible desde el 5 de
+                  noviembre.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex justify-center mt-4 space-x-2">
+              <button
+                class="w-3 h-3 rounded-full bg-gray-400"
+                data-slide="0"
+              ></button>
+              <button
+                class="w-3 h-3 rounded-full bg-gray-300"
+                data-slide="1"
+              ></button>
+              <button
+                class="w-3 h-3 rounded-full bg-gray-300"
+                data-slide="2"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const grupos = {
+        grupo1: {
+          graficaLinea:
+            "https://phys.libretexts.org/@api/deki/files/13947/v_const_a.png?revision=1",
+          objetivos: [
+            { texto: "Pasos cortos en línea recta", done: true },
+            { texto: "Deslizamiento con una pierna", done: false },
+            { texto: "Frenadas suaves (T-stop)", done: false },
+          ],
+          reuniones: 5,
+          alumnos: [
+            {
+              nombre: "Carlos Pérez",
+              img: "https://randomuser.me/api/portraits/men/43.jpg",
+              graficaCircular:
+                "https://piktochart.com/wp-content/uploads/2021/08/gauge_1-1024x759.png",
+            },
+            {
+              nombre: "María Torres",
+              img: "https://randomuser.me/api/portraits/women/45.jpg",
+              graficaCircular:
+                "https://piktochart.com/wp-content/uploads/2021/08/gauge_1-1024x759.png",
+            },
+            {
+              nombre: "Diego Rojas",
+              img: "https://randomuser.me/api/portraits/men/12.jpg",
+              graficaCircular:
+                "https://piktochart.com/wp-content/uploads/2021/08/gauge_1-1024x759.png",
+            },
+          ],
+        },
+        grupo2: {
+          graficaLinea:
+            "https://openoregon.pressbooks.pub/app/uploads/sites/42/2018/11/v-dive.png",
+          objetivos: [
+            { texto: "Control del equilibrio", done: true },
+            { texto: "Vuelta en curva cerrada", done: true },
+            { texto: "Frenada controlada", done: false },
+          ],
+          reuniones: 2,
+          alumnos: [
+            {
+              nombre: "Lucía Ramos",
+              img: "https://randomuser.me/api/portraits/women/50.jpg",
+              graficaCircular:
+                "https://piktochart.com/wp-content/uploads/2021/08/gauge_1-1024x759.png",
+            },
+            {
+              nombre: "Sofía Gómez",
+              img: "https://randomuser.me/api/portraits/women/33.jpg",
+              graficaCircular:
+                "https://piktochart.com/wp-content/uploads/2021/08/gauge_1-1024x759.png",
+            },
+            {
+              nombre: "Pedro Ruiz",
+              img: "https://randomuser.me/api/portraits/men/22.jpg",
+              graficaCircular:
+                "https://piktochart.com/wp-content/uploads/2021/08/gauge_1-1024x759.png",
+            },
+          ],
+        },
+        grupo3: {
+          graficaLinea:
+            "https://phys.libretexts.org/@api/deki/files/13943/pos_throw.png?revision=1",
+          objetivos: [
+            { texto: "Postura de salida", done: false },
+            { texto: "Deslizamiento largo", done: true },
+            { texto: "Frenadas en grupo", done: true },
+          ],
+          reuniones: 7,
+          alumnos: [
+            {
+              nombre: "Andrés Gómez",
+              img: "https://randomuser.me/api/portraits/men/60.jpg",
+              graficaCircular:
+                "https://piktochart.com/wp-content/uploads/2021/08/gauge_1-1024x759.png",
+            },
+            {
+              nombre: "Laura Castillo",
+              img: "https://randomuser.me/api/portraits/women/65.jpg",
+              graficaCircular:
+                "https://piktochart.com/wp-content/uploads/2021/08/gauge_1-1024x759.png",
+            },
+            {
+              nombre: "Mateo Salazar",
+              img: "https://randomuser.me/api/portraits/men/7.jpg",
+              graficaCircular:
+                "https://piktochart.com/wp-content/uploads/2021/08/gauge_1-1024x759.png",
+            },
+          ],
+        },
+      };
+
+      let grupoActual = "grupo1";
+      let alumnoIndex = 0;
+
+      const objetivosList = document.getElementById("objetivosList");
+      const reunionesNum = document.getElementById("reunionesNum");
+      const addReunion = document.getElementById("addReunion");
+      const alumnoImg = document.getElementById("alumnoImg");
+      const alumnoNombre = document.getElementById("alumnoNombre");
+      const graficaLinea = document.getElementById("graficaLinea");
+      const graficaCircular = document.getElementById("graficaCircular");
+
+      function renderGrupo(grupoKey) {
+        grupoActual = grupoKey;
+        alumnoIndex = 0;
+        const grupo = grupos[grupoKey];
+
+        document.querySelectorAll(".grupo-btn").forEach((btn) => {
+          btn.classList.remove("bg-pink-200");
+          btn.classList.add("bg-gray-300");
+        });
+        document.getElementById(grupoKey).classList.remove("bg-gray-300");
+        document.getElementById(grupoKey).classList.add("bg-pink-200");
+
+        objetivosList.innerHTML = "";
+        grupo.objetivos.forEach((obj, i) => {
+          const li = document.createElement("li");
+          li.className =
+            "flex justify-between items-center bg-white p-2 rounded-lg shadow-sm cursor-pointer";
+          li.innerHTML = `
+            <span>${obj.texto}</span>
+            ${
+              obj.done
+                ? '<span class="text-green-500 text-xl">✔</span>'
+                : '<span class="w-4 h-4 border-2 border-gray-400 rounded-full"></span>'
+            }
+          `;
+          li.onclick = () => {
+            grupo.objetivos[i].done = !grupo.objetivos[i].done;
+            renderGrupo(grupoKey);
+          };
+          objetivosList.appendChild(li);
+        });
+
+        graficaLinea.src = grupo.graficaLinea;
+        reunionesNum.textContent = grupo.reuniones;
+        renderAlumno();
+      }
+
+      function renderAlumno() {
+        const grupo = grupos[grupoActual];
+        const alumno = grupo.alumnos[alumnoIndex];
+        alumnoImg.src = alumno.img;
+        alumnoNombre.textContent = alumno.nombre;
+        graficaCircular.src = alumno.graficaCircular;
+      }
+
+      document.getElementById("grupo1").onclick = () => renderGrupo("grupo1");
+      document.getElementById("grupo2").onclick = () => renderGrupo("grupo2");
+      document.getElementById("grupo3").onclick = () => renderGrupo("grupo3");
+
+      document.getElementById("nextAlumno").onclick = () => {
+        const grupo = grupos[grupoActual];
+        alumnoIndex = (alumnoIndex + 1) % grupo.alumnos.length;
+        renderAlumno();
+      };
+
+      document.getElementById("prevAlumno").onclick = () => {
+        const grupo = grupos[grupoActual];
+        alumnoIndex =
+          (alumnoIndex - 1 + grupo.alumnos.length) % grupo.alumnos.length;
+        renderAlumno();
+      };
+
+      addReunion.onclick = () => {
+        grupos[grupoActual].reuniones++;
+        renderGrupo(grupoActual);
+      };
+
+      renderGrupo("grupo1");
+
+      // Carrusel automático de noticias
+      const slides = document.getElementById("newsSlides");
+      const dots = document.querySelectorAll("#newsCarousel button");
+      let index = 0;
+
+      function showSlide(i) {
+        slides.style.transform = `translateX(-${i * 100}%)`;
+        dots.forEach((d, idx) => d.classList.toggle("bg-gray-400", idx === i));
+      }
+
+      dots.forEach((dot, i) =>
+        dot.addEventListener("click", () => {
+          index = i;
+          showSlide(i);
+        })
+      );
+
+      setInterval(() => {
+        index = (index + 1) % dots.length;
+        showSlide(index);
+      }, 4000);
+    </script>
+  </body>
+</html>

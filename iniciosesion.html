@@ -3,23 +3,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesion</title>
-        <script src="https://cdn.tailwindcss.com"></script>
+           <link rel="preconnect" href="https://cdn.tailwindcss.com">
+           <link rel="preconnect" href="https://img.icons8.com">
+           <script src="https://cdn.tailwindcss.com"></script>
         <style>
             .glass-input { background: #efefef; border-radius: 9999px; padding: 12px 18px; }
             .shadow-deep { box-shadow: 0 10px 25px rgba(0,0,0,0.25); }
         </style>
 </head>
 <body>
-    <div class="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div class="w-[900px] bg-white rounded-sm shadow-md overflow-hidden flex relative">
-            <a href="/admin.html" class="absolute top-4 right-4 opacity-10 hover:opacity-100 transition-opacity duration-300 z-10">
+    <div class="min-h-screen bg-gray-100 flex items-center justify-center rounded-lg px-4">
+        <div class="w-full max-w-3xl bg-white rounded-lg shadow-md overflow-hidden flex flex-col md:flex-row relative">
+            <a href="admin.html" class="absolute top-4 right-4 opacity-10 hover:opacity-100 transition-opacity duration-300 z-10">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
             </a>
-            <div class="w-1/2 bg-gradient-to-r from-cyan-400 to-cyan-300 p-16 text-white flex flex-col justify-center relative">
-                <a href="/index.html"
+            <div class="w-full md:w-1/2 bg-gradient-to-r from-cyan-400 to-cyan-300 p-8 md:p-16 text-white flex flex-col justify-center relative rounded-lg">
+                <a href="index.html"
                    class="absolute top-4 left-4 flex items-center gap-2 bg-white/90 hover:bg-white text-cyan-600 hover:text-cyan-800 font-semibold px-4 py-2 rounded-full shadow-md transition-all border border-cyan-200"
                    style="z-index:10">
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
@@ -28,33 +30,75 @@
                 <h2 class="text-3xl font-extrabold mb-6">¿No tienes cuenta?</h2>
                 <p class="text-sm mb-8">Ingresa tus datos personales para
                     acceder a todas las funcionalidades</p>
-                <a href="/registro.html" class="inline-block bg-white/20 text-white font-semibold px-6 py-2 rounded shadow-deep hover:opacity-90 w-32 text-center">Registrate</a>
+                <a href="registro.html" class="inline-block bg-white/20 text-white font-semibold px-6 py-2 rounded shadow-deep hover:opacity-90 w-32 text-center">Registrate</a>
             </div>
 
-            <div class="w-1/2 p-16">
+            <div class="w-full md:w-1/2 p-8 md:p-16 rounded-lg">
                 <h1 class="text-4xl font-extrabold text-cyan-600 mb-6">Inicia <span class="text-blue-500">Sesión</span></h1>
 
                 <div class="flex gap-6 mb-8">
                     <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="/images/facebook.png" alt=""></div>
                     <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="/images/cromo.png" alt=""></div>
                     <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="/images/logotipo-de-mac-os.png" alt=""></div>
+                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="/images/facebook.png" alt="" loading="lazy" decoding="async"></div>
+                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="/images/cromo.png" alt="" loading="lazy" decoding="async"></div>
+                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center border"><img class="w-6 h-6" src="/images/logotipo-de-mac-os.png" alt="" loading="lazy" decoding="async"></div>
                 </div>
 
-                <form class="space-y-6 max-w-md">
+                <form id="loginForm" class="space-y-6 max-w-md w-full">
                     <div class="flex items-center glass-input">
-                        <span class="mr-3"><img class="w-7 h-6" src="/images/agregar-usuario.png" alt=""></span>
+                        <span class="mr-3"><img class="w-7 h-6" src="images/agregar-usuario.png" alt=""></span>
                         <input type="text" placeholder="Nombre usuario" class="bg-transparent outline-none w-full" />
                     </div>
 
                     <div class="flex items-center glass-input">
-                        <span class="mr-3"><img class="w-7 h-6" src="/images/candado.png" alt=""></span>
+                        <span class="mr-3"><img class="w-7 h-6" src="images/candado.png" alt=""></span>
                         <input type="password" placeholder="Contraseña" class="bg-transparent outline-none w-full" />
                     </div>
 
-                    <button type="submit" class="mt-4 bg-gradient-to-b from-cyan-600 to-cyan-800 text-white px-6 py-3 rounded shadow-deep">Iniciar sesion</button>
+                    <button type="submit" class="mt-4 bg-gradient-to-b from-cyan-600 to-cyan-800 text-white px-6 py-3 rounded shadow-deep w-full md:w-auto">Iniciar sesion</button>
+                    <p id="loginError" class="text-sm text-red-500 mt-2 hidden">Usuario o contraseña incorrectos.</p>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        // Login routing: si el usuario contiene 'admin' -> admin, 'instructor' -> instructor, else estudiantes
+        (function(){
+            const form = document.getElementById('loginForm');
+            const error = document.getElementById('loginError');
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                const username = form.querySelector('input[type=text]').value.trim().toLowerCase();
+                const password = form.querySelector('input[type=password]').value;
+                // maqueta: aceptamos cualquier contraseña no vacía
+                if(!username || !password){
+                    error.textContent = 'Por favor ingresa usuario y contraseña.';
+                    error.classList.remove('hidden');
+                    return;
+                }
+                error.classList.add('hidden');
+                const origin = (window.location.protocol === 'file:') ? '' : window.location.origin; // file:// -> usar rutas relativas
+                if(username.includes('admin')){
+                    window.location.href = origin + '/admin.html';
+                } else if(username.includes('instructor')){
+                    window.location.href = origin + '/instructor.html';
+                } else {
+                    window.location.href = origin + '/estudiantes.html';
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('img').forEach(img=>{
+            if(!img.hasAttribute('loading')) img.setAttribute('loading','lazy');
+            if(!img.hasAttribute('decoding')) img.setAttribute('decoding','async');
+        });
+        const high = document.querySelector('img[data-priority="high"]');
+        if(high){ high.loading='eager'; high.setAttribute('fetchpriority','high'); }
+    });
+</script>
